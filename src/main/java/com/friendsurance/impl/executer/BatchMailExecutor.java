@@ -1,7 +1,7 @@
 package com.friendsurance.impl.executer;
 
-import com.friendsurance.implementation.mailservice.QueueMailService;
-import com.friendsurance.implementation.model.InProcessMail;
+import com.friendsurance.impl.mailservice.QueueMailService;
+import com.friendsurance.impl.model.InProcessMail;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -15,7 +15,5 @@ public class BatchMailExecutor {
 
         Thread mailServiceThread = new Thread(mailService);
         mailServiceThread.start();
-
-
     }
 }

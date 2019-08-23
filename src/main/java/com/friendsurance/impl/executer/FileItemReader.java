@@ -21,8 +21,10 @@ public class FileItemReader implements ItemReader<Member> {
         Member member = null;
         try {
             String itemString = bufferedReader.readLine();
+
             if (itemString == null)
                 return null; //ToDo handle for exception
+
             member = Member.clone(itemString);
         } catch (IOException e) {
             e.printStackTrace();

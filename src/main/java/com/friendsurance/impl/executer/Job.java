@@ -2,6 +2,8 @@ package com.friendsurance.impl.executer;
 
 
 import com.friendsurance.impl.model.InProcessMail;
+import com.friendsurance.impl.model.Member;
+import com.friendsurance.processing.ItemWriter;
 
 import java.util.concurrent.BlockingQueue;
 
@@ -17,6 +19,8 @@ public class Job  {
     }
 
     public void execute(){
+        ItemWriter<InProcessMail> writer = new QueueItemWriter(messages);
+
 
     }
 }

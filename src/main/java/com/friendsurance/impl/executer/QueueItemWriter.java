@@ -1,6 +1,7 @@
 package com.friendsurance.impl.executer;
 
-import com.friendsurance.implementation.model.InProcessMail;
+
+import com.friendsurance.impl.model.InProcessMail;
 import com.friendsurance.processing.ItemWriter;
 
 import java.util.concurrent.BlockingQueue;
