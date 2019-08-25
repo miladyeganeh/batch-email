@@ -6,5 +6,4 @@ package com.friendsurance.mail;
 public interface EmailRecipient {
 
     String getEmail();
-
 }
