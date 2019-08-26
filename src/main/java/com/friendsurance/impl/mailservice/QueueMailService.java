@@ -1,5 +1,7 @@
 package com.friendsurance.impl.mailservice;
 
+import com.friendsurance.impl.exceptions.JobExecutionException;
+import com.friendsurance.impl.executer.Job;
 import com.friendsurance.impl.model.InProcessMail;
 import com.friendsurance.mail.EmailRecipient;
 import com.friendsurance.mail.EmailService;
@@ -23,16 +25,27 @@ public class QueueMailService implements EmailService, Runnable {
     }
 
     public void run() {
+
+        Job job = new Job(messages);
+        try {
+            job.execute();
+        } catch (JobExecutionException e) {
+            e.printStackTrace();
+        }
+
         while (!Thread.currentThread().isInterrupted()){
             try {
-                processMessage(messages.take());
+                if (!messages.isEmpty())
+                    processMessage(messages.take());
+                else
+                    break;
             } catch (InterruptedException e) {
-                e.printStackTrace();
+//                Thread.currentThread().isInterrupted();
             }
         }
     }
 
-    public void processMessage(InProcessMail message){
+    public void processMessage(InProcessMail message) throws InterruptedException {
         MailType mailType = MailType.values()[message.getEmailType()];
         sendMail(message.getEmailRecipient(), mailType);
     }

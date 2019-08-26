@@ -11,11 +11,18 @@ public class RuleParser implements Parser{
 
         String[] ruleArray = ruleLine.split(RULE_SPLITTER_CHAR);
 
-        if (ruleLine != null){
+        if (ruleArray.length > 0){
+            ValueWithOperation friendsCondition = new ValueWithOperation();
+            ValueWithOperation invitationsCondition = new ValueWithOperation();
             Boolean hasContract = ruleArray[0].trim().equalsIgnoreCase("1");
-            ValueWithOperation friendsCondition = getCondition(ruleArray[1], ruleArray[2]);
-            ValueWithOperation invitationsCondition = getCondition(ruleArray[3], ruleArray[4]);
-            Integer applyResult = Integer.parseInt(ruleArray[4]);
+
+            if (!ruleArray[2].isEmpty() && !ruleArray[3].isEmpty())
+                friendsCondition = getCondition(ruleArray[2], ruleArray[3]);
+
+            if (!ruleArray[5].isEmpty() && !ruleArray[6].isEmpty())
+                invitationsCondition = getCondition(ruleArray[5], ruleArray[6]);
+
+            Integer applyResult = Integer.parseInt(ruleArray[8]);
 
             return new Rule(applyResult, hasContract, friendsCondition, invitationsCondition);
         }
@@ -26,7 +33,7 @@ public class RuleParser implements Parser{
     private ValueWithOperation getCondition(String op, String value) {
 
         ValueWithOperation valueWithOperation = new ValueWithOperation();
-        valueWithOperation.setOperation(Operation.valueOf(op));
+        valueWithOperation.setOperation(Operation.convert(op));
         valueWithOperation.setValue(Integer.parseInt(value));
 
         return valueWithOperation;

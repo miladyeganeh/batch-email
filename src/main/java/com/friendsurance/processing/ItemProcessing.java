@@ -32,7 +32,10 @@ public abstract class ItemProcessing<I, O> {
      */
     public final void doProcessing() {
 
-        for (I item = reader.read(); item != null; ) {
+//        for (I item = reader.read(); item != null; ) {
+
+        I item;
+        while ((item = reader.read()) != null) {
 
             O result = process(item);
 

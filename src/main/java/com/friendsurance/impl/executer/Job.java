@@ -5,7 +5,6 @@ import com.friendsurance.impl.exceptions.JobExecutionException;
 import com.friendsurance.impl.model.InProcessMail;
 import com.friendsurance.impl.model.Member;
 import com.friendsurance.impl.ruls.RuleParser;
-import com.friendsurance.processing.ItemProcessing;
 import com.friendsurance.processing.ItemReader;
 import com.friendsurance.processing.ItemWriter;
 
@@ -20,12 +19,8 @@ import java.util.concurrent.BlockingQueue;
 public class Job  {
 
     private BlockingQueue<InProcessMail> messages;
-    private String usersInfoData = BatchMailExecutor.class.getClassLoader()
-            .getResource("src/main/resources/userInfoData.data")
-            .getPath();
-
-    private String rulesPath = BatchMailExecutor.class.getClassLoader().getResource("src/main/resources/rules.rls")
-            .getPath();
+    private String usersInfoData = BatchMailExecutor.class.getClassLoader().getResource("src/main/resources/userInfoData.data").getPath();
+    private String rulesPath = BatchMailExecutor.class.getClassLoader().getResource("src/main/resources/rules.r").getPath();
 
     public Job(BlockingQueue<InProcessMail> messages) {
         this.messages = messages;

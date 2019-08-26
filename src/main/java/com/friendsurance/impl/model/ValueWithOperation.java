@@ -5,7 +5,7 @@ public class ValueWithOperation {
     private Integer value;
     private Operation operation;
 
-    public boolean isMatchedOperation(long num) {
+    public Boolean isMatchedOperation(long num) {
         switch (this.operation) {
             case EQ:
                 return num == value;
@@ -14,7 +14,7 @@ public class ValueWithOperation {
             case LT:
                 return num < value;
             default:
-                return false;
+                return Boolean.FALSE;
         }
     }
 

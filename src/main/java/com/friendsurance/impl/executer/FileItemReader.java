@@ -1,7 +1,6 @@
 package com.friendsurance.impl.executer;
 
 
-import com.friendsurance.impl.exceptions.InvalidDataFormatException;
 import com.friendsurance.impl.model.Member;
 import com.friendsurance.processing.ItemReader;
 
@@ -19,21 +18,16 @@ public class FileItemReader implements ItemReader<Member> {
     }
 
     public Member read() {
-        Member member = null;
 
+        Member member = null;
         try {
             String itemString = dataResourceReader.readLine();
-
             if (itemString == null) {
                 dataResourceReader.close();
-                return null; //TODO handle for exception
             }
-
             member = Member.clone(itemString);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InvalidDataFormatException e) {
-            System.out.println("Invalid input Data");
+        } catch (Exception e) {
+
         }
         return member;
     }

@@ -2,7 +2,6 @@ package com.friendsurance.impl.model;
 
 import com.friendsurance.backend.User;
 import com.friendsurance.impl.exceptions.InvalidDataFormatException;
-import com.friendsurance.impl.utils.StringUtil;
 import com.friendsurance.mail.EmailRecipient;
 
 public class Member extends User implements EmailRecipient {
@@ -23,5 +22,12 @@ public class Member extends User implements EmailRecipient {
         int sentInvitationsNumber = Integer.parseInt(items[2].trim());
 
         return new Member(email,hasContract,friendsNumber,sentInvitationsNumber);
+    }
+
+    public static class NullMember extends Member {
+
+        public NullMember(String email, boolean hasContract, int friendsNumber, int sentInvitationsNumber) {
+            super(email, hasContract, friendsNumber, sentInvitationsNumber);
+        }
     }
 }

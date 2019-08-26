@@ -22,8 +22,8 @@ public class Rule {
 
     public Boolean applies(User user){
 
-        Boolean isMatched = hasContract.equals(user.hasContract()) & friendsCondition.isMatchedOperation(user.getFriendsNumber());
-        isMatched &= invitationsCondition.isMatchedOperation(user.getSentInvitationsNumber());
+        Boolean isMatched = hasContract.equals(user.hasContract()) && friendsCondition.isMatchedOperation(user.getFriendsNumber());
+        isMatched = isMatched && invitationsCondition.isMatchedOperation(user.getSentInvitationsNumber());
 
         return isMatched;
     }

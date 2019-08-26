@@ -30,8 +30,8 @@ public class UserProcess extends ItemProcessing<Member, InProcessMail> {
 
     protected InProcessMail process(Member item) {
 
-        if (item == null)
-            return null;
+        if (item instanceof Member.NullMember)
+            return new InProcessMail.PoisonPillInProcessMail();
 
         SortedSet<Rule> applicableUserRules = (SortedSet<Rule>)ruleEngine.getApplicableRules(item);
         if (applicableUserRules.isEmpty())
