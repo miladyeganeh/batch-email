@@ -1,5 +1,8 @@
 package com.friendsurance.impl.model;
 
+/**
+ * @author M.Yeganeh
+ **/
 public class ValueWithOperation {
 
     private Integer value;
@@ -18,16 +21,8 @@ public class ValueWithOperation {
         }
     }
 
-    public Integer getValue() {
-        return value;
-    }
-
     public void setValue(Integer value) {
         this.value = value;
-    }
-
-    public Operation getOperation() {
-        return operation;
     }
 
     public void setOperation(Operation operation) {

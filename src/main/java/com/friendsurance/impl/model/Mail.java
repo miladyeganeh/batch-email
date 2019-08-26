@@ -2,17 +2,21 @@ package com.friendsurance.impl.model;
 
 import com.friendsurance.mail.EmailRecipient;
 
-public class InProcessMail {
+/**
+ * @author M.Yeganeh
+ * This class keeps email data for sending
+ **/
+public class Mail {
 
     private EmailRecipient emailRecipient;
     private int emailType;
 
-    public InProcessMail(EmailRecipient emailRecipient, int emailType) {
+    public Mail(EmailRecipient emailRecipient, int emailType) {
         this.emailRecipient = emailRecipient;
         this.emailType = emailType;
     }
 
-    public InProcessMail() {
+    public Mail() {
     }
 
     public EmailRecipient getEmailRecipient() {
@@ -21,8 +25,5 @@ public class InProcessMail {
 
     public int getEmailType() {
         return emailType;
-    }
-
-    public static class PoisonPillInProcessMail extends InProcessMail {
     }
 }

@@ -7,8 +7,11 @@ import com.friendsurance.processing.ItemReader;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
+/**
+ * @author M.Yeganeh
+ * This class fetch data from backend
+ **/
 public class FileItemReader implements ItemReader<Member> {
 
     private BufferedReader dataResourceReader;
@@ -18,8 +21,8 @@ public class FileItemReader implements ItemReader<Member> {
     }
 
     public Member read() {
-
         Member member = null;
+
         try {
             String itemString = dataResourceReader.readLine();
             if (itemString == null) {

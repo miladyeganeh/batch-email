@@ -2,7 +2,7 @@ package com.friendsurance.impl.executer;
 
 
 import com.friendsurance.impl.exceptions.JobExecutionException;
-import com.friendsurance.impl.model.InProcessMail;
+import com.friendsurance.impl.model.Mail;
 import com.friendsurance.impl.model.Member;
 import com.friendsurance.impl.ruls.RuleParser;
 import com.friendsurance.processing.ItemReader;
@@ -14,20 +14,19 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * @author M.Yeganeh
- */
-//Producer
+ **/
 public class Job  {
 
-    private BlockingQueue<InProcessMail> messages;
+    private BlockingQueue<Mail> messages;
     private String usersInfoData = BatchMailExecutor.class.getClassLoader().getResource("src/main/resources/userInfoData.data").getPath();
     private String rulesPath = BatchMailExecutor.class.getClassLoader().getResource("src/main/resources/rules.r").getPath();
 
-    public Job(BlockingQueue<InProcessMail> messages) {
+    public Job(BlockingQueue<Mail> messages) {
         this.messages = messages;
     }
 
     public void execute() throws JobExecutionException {
-        ItemWriter<InProcessMail> itemWriter = new QueueItemWriter(messages);
+        ItemWriter<Mail> itemWriter = new QueueItemWriter(messages);
 
         try {
             ItemReader<Member> itemReader = new FileItemReader(usersInfoData);

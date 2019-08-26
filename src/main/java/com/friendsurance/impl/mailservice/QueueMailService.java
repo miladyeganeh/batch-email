@@ -2,7 +2,7 @@ package com.friendsurance.impl.mailservice;
 
 import com.friendsurance.impl.exceptions.JobExecutionException;
 import com.friendsurance.impl.executer.Job;
-import com.friendsurance.impl.model.InProcessMail;
+import com.friendsurance.impl.model.Mail;
 import com.friendsurance.mail.EmailRecipient;
 import com.friendsurance.mail.EmailService;
 
@@ -10,13 +10,13 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * @author M.Yeganeh
+ * Consume data that will be produce
  */
-//Consumer
 public class QueueMailService implements EmailService, Runnable {
 
-    BlockingQueue<InProcessMail> messages;
+    BlockingQueue<Mail> messages;
 
-    public QueueMailService(BlockingQueue<InProcessMail> messages) {
+    public QueueMailService(BlockingQueue<Mail> messages) {
         this.messages = messages;
     }
 
@@ -45,7 +45,7 @@ public class QueueMailService implements EmailService, Runnable {
         }
     }
 
-    public void processMessage(InProcessMail message) throws InterruptedException {
+    public void processMessage(Mail message) throws InterruptedException {
         MailType mailType = MailType.values()[message.getEmailType()];
         sendMail(message.getEmailRecipient(), mailType);
     }

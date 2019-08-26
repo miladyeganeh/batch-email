@@ -1,5 +1,8 @@
 package com.friendsurance.impl.exceptions;
 
+/**
+ * @author M.Yeganeh
+ **/
 public class JobExecutionException extends Exception{
 
     public JobExecutionException() {

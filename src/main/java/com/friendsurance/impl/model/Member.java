@@ -4,6 +4,9 @@ import com.friendsurance.backend.User;
 import com.friendsurance.impl.exceptions.InvalidDataFormatException;
 import com.friendsurance.mail.EmailRecipient;
 
+/**
+ * @author M.Yeganeh
+ **/
 public class Member extends User implements EmailRecipient {
 
     public Member(String email, boolean hasContract, int friendsNumber, int sentInvitationsNumber) {
@@ -11,8 +14,8 @@ public class Member extends User implements EmailRecipient {
     }
 
     public static Member clone(String itemString) throws InvalidDataFormatException {
-
         String[] items = itemString.split(",");
+
         if (items.length < 4)
             throw new InvalidDataFormatException();
         String email = items[0].trim();

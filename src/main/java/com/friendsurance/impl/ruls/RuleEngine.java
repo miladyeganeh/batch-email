@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
 
+/**
+ * @author M.Yeganeh
+ * For load rules and comparison
+ **/
 public class RuleEngine {
 
     private final Set<Rule> rules = new HashSet<>();
@@ -35,6 +39,14 @@ public class RuleEngine {
         rules.addAll(loadedRules);
     }
 
+
+    /**
+     * This method is main method which provide matched rule for a user.
+     * return {@link SortedSet} of {@link Rule}
+     *
+     * @param user
+     * @return
+     */
     public Set<Rule> getApplicableRules(User user){
         SortedSet<Rule> userRules = new TreeSet<>(new Rule.MaxPriorityRule());
         Iterator<Rule> iterator = getRules().iterator();

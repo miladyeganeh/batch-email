@@ -1,5 +1,8 @@
 package com.friendsurance.impl.exceptions;
 
+/**
+ * @author M.Yeganeh
+ **/
 public class InvalidDataFormatException extends Exception {
 
     /**

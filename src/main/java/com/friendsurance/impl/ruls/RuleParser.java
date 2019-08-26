@@ -2,14 +2,18 @@ package com.friendsurance.impl.ruls;
 
 import com.friendsurance.impl.model.Operation;
 import com.friendsurance.impl.model.ValueWithOperation;
+import com.friendsurance.impl.utils.StringUtil;
 
+/**
+ * @author M.Yeganeh
+ * This class parse rule from resources
+ **/
 public class RuleParser implements Parser{
 
-    private final static String RULE_SPLITTER_CHAR = " ";
     @Override
     public Rule parse(String ruleLine) {
 
-        String[] ruleArray = ruleLine.split(RULE_SPLITTER_CHAR);
+        String[] ruleArray = ruleLine.split(StringUtil.RULE_SPLITTER_CHAR);
 
         if (ruleArray.length > 0){
             ValueWithOperation friendsCondition = new ValueWithOperation();
@@ -30,6 +34,13 @@ public class RuleParser implements Parser{
         return null;
     }
 
+    /**
+     * return an instance of {@link ValueWithOperation}
+     *
+     * @param op
+     * @param value
+     * @return
+     */
     private ValueWithOperation getCondition(String op, String value) {
 
         ValueWithOperation valueWithOperation = new ValueWithOperation();

@@ -6,6 +6,10 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author M.Yeganeh
+ * load rules for RuleEngine
+ **/
 public class RuleLoader {
 
     private Parser parser;

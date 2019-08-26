@@ -1,20 +1,25 @@
 package com.friendsurance.impl.executer;
 
 
-import com.friendsurance.impl.model.InProcessMail;
+import com.friendsurance.impl.model.Mail;
 import com.friendsurance.processing.ItemWriter;
 
 import java.util.concurrent.BlockingQueue;
 
-public class QueueItemWriter implements ItemWriter<InProcessMail> {
+/**
+ * @author M.Yeganeh
+ * Write processed data to queue
+ **/
 
-    private BlockingQueue<InProcessMail> queuedMessages;
+public class QueueItemWriter implements ItemWriter<Mail> {
 
-    public QueueItemWriter(BlockingQueue<InProcessMail> waitingMessages) {
+    private BlockingQueue<Mail> queuedMessages;
+
+    public QueueItemWriter(BlockingQueue<Mail> waitingMessages) {
         this.queuedMessages = waitingMessages;
     }
 
-    public void write(InProcessMail item) {
+    public void write(Mail item) {
         try {
             queuedMessages.put(item);
         } catch (InterruptedException e) {

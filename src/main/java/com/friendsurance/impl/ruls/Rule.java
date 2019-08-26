@@ -5,6 +5,10 @@ import com.friendsurance.impl.model.ValueWithOperation;
 
 import java.util.Comparator;
 
+/**
+ * @author M.Yeganeh
+ * This keep rules for us
+ **/
 public class Rule {
 
     private Integer applyResult;
@@ -20,8 +24,13 @@ public class Rule {
         this.invitationsCondition = invitationsCondition;
     }
 
+    /**
+     * checking rules for the given user.
+     *
+     * @param user
+     * @return
+     */
     public Boolean applies(User user){
-
         Boolean isMatched = hasContract.equals(user.hasContract()) && friendsCondition.isMatchedOperation(user.getFriendsNumber());
         isMatched = isMatched && invitationsCondition.isMatchedOperation(user.getSentInvitationsNumber());
 

@@ -1,6 +1,10 @@
 package com.friendsurance.impl.model;
 
+/**
+ * @author M.Yeganeh
+ **/
 public enum Operation {
+
     GT(">"),
     EQ("="),
     LT("<");
