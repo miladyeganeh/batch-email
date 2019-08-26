@@ -40,7 +40,7 @@ public class QueueMailService implements EmailService, Runnable {
                 else
                     break;
             } catch (InterruptedException e) {
-//                Thread.currentThread().isInterrupted();
+
             }
         }
     }
