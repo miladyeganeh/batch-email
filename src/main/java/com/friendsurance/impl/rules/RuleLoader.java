@@ -1,4 +1,4 @@
-package com.friendsurance.impl.ruls;
+package com.friendsurance.impl.rules;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -32,7 +32,7 @@ public class BatchMailExecutor {
         ScheduledExecutorService executorService = Executors
                 .newSingleThreadScheduledExecutor();
 
-//        executorService.scheduleAtFixedRate(mailService, 0, 1, TimeUnit.SECONDS); //For testing
-        executorService.scheduleAtFixedRate(mailService, initalDelay, TimeUnit.DAYS.toSeconds(1), TimeUnit.SECONDS); // run every 3AM
+        executorService.scheduleAtFixedRate(mailService, 0, 5, TimeUnit.SECONDS); //For testing
+//        executorService.scheduleAtFixedRate(mailService, initalDelay, TimeUnit.DAYS.toSeconds(1), TimeUnit.SECONDS); // run every 3AM
     }
 }

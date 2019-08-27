@@ -14,7 +14,7 @@ import java.util.concurrent.BlockingQueue;
  */
 public class QueueMailService implements EmailService, Runnable {
 
-    BlockingQueue<Mail> messages;
+    private BlockingQueue<Mail> messages;
 
     public QueueMailService(BlockingQueue<Mail> messages) {
         this.messages = messages;
@@ -40,7 +40,7 @@ public class QueueMailService implements EmailService, Runnable {
                 else
                     break;
             } catch (InterruptedException e) {
-
+                e.printStackTrace();
             }
         }
     }

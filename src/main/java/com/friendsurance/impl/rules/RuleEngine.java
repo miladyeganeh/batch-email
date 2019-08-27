@@ -1,4 +1,4 @@
-package com.friendsurance.impl.ruls;
+package com.friendsurance.impl.rules;
 
 import com.friendsurance.backend.User;
 

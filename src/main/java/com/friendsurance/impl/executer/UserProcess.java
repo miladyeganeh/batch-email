@@ -2,9 +2,9 @@ package com.friendsurance.impl.executer;
 
 import com.friendsurance.impl.model.Mail;
 import com.friendsurance.impl.model.Member;
-import com.friendsurance.impl.ruls.Parser;
-import com.friendsurance.impl.ruls.Rule;
-import com.friendsurance.impl.ruls.RuleEngine;
+import com.friendsurance.impl.rules.Parser;
+import com.friendsurance.impl.rules.Rule;
+import com.friendsurance.impl.rules.RuleEngine;
 import com.friendsurance.processing.ItemProcessing;
 import com.friendsurance.processing.ItemReader;
 import com.friendsurance.processing.ItemWriter;
